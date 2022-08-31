@@ -182,7 +182,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8396226, g: 0.8307026, b: 0.74061054, a: 1}
+  m_Color: {r: 0.16862746, g: 0.1764706, b: 0.25882354, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -243,7 +243,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.53426486, g: 0.53928345, b: 0.5471698, a: 0}
+  m_BackGroundColor: {r: 0.8980392, g: 0.654902, b: 0.61960787, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -260,7 +260,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 21.7
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 684913362}
   - component: {fileID: 684913361}
   m_Layer: 0
-  m_Name: MainBoard (1)
+  m_Name: Player1Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -350,7 +350,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8396226, g: 0.8307026, b: 0.74061054, a: 1}
+  m_Color: {r: 0.16862746, g: 0.1764706, b: 0.25882354, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -405,27 +405,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   polyominoesList:
-  - {fileID: 2622030372941201015, guid: b9cf75402d53f4c1aa4472c2f6340de4, type: 3}
-  - {fileID: 8264735052563172045, guid: dfcd644a625ab4570b6588867480ce2a, type: 3}
-  - {fileID: 1504778932615932259, guid: a05349fb56bde4414b45e7a32ce53a29, type: 3}
-  - {fileID: 2805601900833958421, guid: 35610b7696eef4ef5afa854a06d7bb87, type: 3}
-  - {fileID: 5206867902050281582, guid: 7ba2561a58a5641b89318e51668b5292, type: 3}
-  - {fileID: 540147528234068826, guid: 66c76be05989c49dfb10aae912809c3c, type: 3}
-  - {fileID: 5415997180347732548, guid: 56f63f5a5e21a4107bfbd834bc796663, type: 3}
-  - {fileID: 2622030372941201015, guid: b9cf75402d53f4c1aa4472c2f6340de4, type: 3}
-  - {fileID: 8264735052563172045, guid: dfcd644a625ab4570b6588867480ce2a, type: 3}
-  - {fileID: 1504778932615932259, guid: a05349fb56bde4414b45e7a32ce53a29, type: 3}
-  - {fileID: 2805601900833958421, guid: 35610b7696eef4ef5afa854a06d7bb87, type: 3}
-  - {fileID: 5206867902050281582, guid: 7ba2561a58a5641b89318e51668b5292, type: 3}
-  - {fileID: 540147528234068826, guid: 66c76be05989c49dfb10aae912809c3c, type: 3}
-  - {fileID: 5415997180347732548, guid: 56f63f5a5e21a4107bfbd834bc796663, type: 3}
-  - {fileID: 2622030372941201015, guid: b9cf75402d53f4c1aa4472c2f6340de4, type: 3}
-  - {fileID: 8264735052563172045, guid: dfcd644a625ab4570b6588867480ce2a, type: 3}
-  - {fileID: 1504778932615932259, guid: a05349fb56bde4414b45e7a32ce53a29, type: 3}
-  - {fileID: 2805601900833958421, guid: 35610b7696eef4ef5afa854a06d7bb87, type: 3}
-  - {fileID: 5206867902050281582, guid: 7ba2561a58a5641b89318e51668b5292, type: 3}
-  - {fileID: 540147528234068826, guid: 66c76be05989c49dfb10aae912809c3c, type: 3}
-  - {fileID: 5415997180347732548, guid: 56f63f5a5e21a4107bfbd834bc796663, type: 3}
+  - {fileID: 2622030372941201015, guid: 7d76fb5e969c14e49a89f711973cae8a, type: 3}
+  - {fileID: 2622030372941201015, guid: 7d76fb5e969c14e49a89f711973cae8a, type: 3}
 --- !u!4 &698597236
 Transform:
   m_ObjectHideFlags: 0
@@ -452,7 +433,7 @@ GameObject:
   - component: {fileID: 1290699021}
   - component: {fileID: 1290699020}
   m_Layer: 0
-  m_Name: MainBoard (2)
+  m_Name: Player2Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -500,7 +481,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8396226, g: 0.8307026, b: 0.74061054, a: 1}
+  m_Color: {r: 0.16862746, g: 0.1764706, b: 0.25882354, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

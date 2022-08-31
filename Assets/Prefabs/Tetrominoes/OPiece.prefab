@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2805601899245904495}
   - component: {fileID: 2805601899245904488}
   m_Layer: 0
-  m_Name: Square
+  m_Name: O1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6410556, g: 1, b: 0.5529412, a: 1}
+  m_Color: {r: 0.21960784, g: 0.5254902, b: 0.5921569, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2805601900427489364}
   - component: {fileID: 2805601900427489365}
   m_Layer: 0
-  m_Name: Square (3)
+  m_Name: O3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,7 +158,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6410556, g: 1, b: 0.5529412, a: 1}
+  m_Color: {r: 0.21960784, g: 0.5254902, b: 0.5921569, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 2805601900786362596}
   - component: {fileID: 2805601900786362597}
   m_Layer: 0
-  m_Name: Square (2)
+  m_Name: O2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,7 +242,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6410556, g: 1, b: 0.5529412, a: 1}
+  m_Color: {r: 0.21960784, g: 0.5254902, b: 0.5921569, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 2805601900945045711}
   - component: {fileID: 2805601900945045704}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: O4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -403,7 +403,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6410556, g: 1, b: 0.5529412, a: 1}
+  m_Color: {r: 0.21960784, g: 0.5254902, b: 0.5921569, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
