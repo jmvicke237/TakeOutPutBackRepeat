@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8264735051368219305}
   - component: {fileID: 8264735051368219304}
   m_Layer: 0
-  m_Name: Square
+  m_Name: J2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8264735051735790291}
   - component: {fileID: 8264735051735790290}
   m_Layer: 0
-  m_Name: Square (3)
+  m_Name: J1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 8264735052162278970}
   - component: {fileID: 8264735052162278973}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: J4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 8264735052291854834}
   - component: {fileID: 8264735052291854837}
   m_Layer: 0
-  m_Name: Square (2)
+  m_Name: J3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -346,6 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8264735052563172047}
   - component: {fileID: 8264735052563172044}
+  - component: {fileID: 4853286750898682950}
   m_Layer: 0
   m_Name: JPiece
   m_TagString: Untagged
@@ -386,3 +387,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationPoint: {x: 0, y: 0, z: 0}
   mainBoard: {fileID: 0}
+--- !u!60 &4853286750898682950
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8264735052563172045}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5806432, y: 1.4316273}
+      - {x: -1.4341321, y: 1.436285}
+      - {x: -1.4546227, y: -0.46174738}
+      - {x: 1.4470334, y: -0.444188}
+      - {x: 1.440765, y: 0.43962216}
+      - {x: 1.1842718, y: 0.45324898}
+      - {x: -0.5545039, y: 0.46317}

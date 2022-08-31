@@ -178,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 540147528234068827}
   - component: {fileID: 540147528234068824}
+  - component: {fileID: 4951032372716999909}
   m_Layer: 0
   m_Name: TPiece
   m_TagString: Untagged
@@ -218,6 +219,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationPoint: {x: 0, y: 0, z: 0}
   mainBoard: {fileID: 0}
+--- !u!60 &4951032372716999909
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540147528234068826}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.47273755, y: 0.46885014}
+      - {x: 0.4624586, y: 1.4573202}
+      - {x: -0.43580675, y: 1.4649429}
+      - {x: -0.49225998, y: 0.4754076}
+      - {x: -1.4700379, y: 0.46316984}
+      - {x: -1.4464962, y: -0.431952}
+      - {x: -0.49015516, y: -0.4236349}
+      - {x: 1.4459032, y: -0.44932628}
+      - {x: 1.4392071, y: 0.4477548}
 --- !u!1 &540147528961224725
 GameObject:
   m_ObjectHideFlags: 0

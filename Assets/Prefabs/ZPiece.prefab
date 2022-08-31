@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5415997180347732546}
   - component: {fileID: 5415997180347732547}
+  - component: {fileID: 796254496185437692}
   m_Layer: 0
   m_Name: ZPiece
   m_TagString: Untagged
@@ -50,6 +51,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationPoint: {x: -1, y: 0, z: 0}
   mainBoard: {fileID: 0}
+--- !u!60 &796254496185437692
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5415997180347732548}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5142157, y: 0.4931774}
+      - {x: -0.5563402, y: 1.4627504}
+      - {x: -2.432897, y: 1.4476945}
+      - {x: -2.4603705, y: 0.54583836}
+      - {x: -1.4664905, y: 0.50644124}
+      - {x: -1.4603266, y: -0.45911598}
+      - {x: 0.44220102, y: -0.42945838}
+      - {x: 0.43111253, y: 0.4338035}
 --- !u!1 &5415997180714728383
 GameObject:
   m_ObjectHideFlags: 0
