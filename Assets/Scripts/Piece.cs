@@ -5,7 +5,7 @@ using UnityEngine;
 public class Piece : MonoBehaviour
 {
     
-    Color myColor;
+    public Color myColor;
     public Vector3 rotationPoint;
     public static int mainBoardHeight;
     public static int mainBoardWidth;
@@ -84,11 +84,6 @@ public class Piece : MonoBehaviour
     }
     private void OnMouseDown() {
         selected = !selected;
-        // if (ValidMove())
-        // {
-        //     selected = !selected;
-        // }
-        
     }
     void Movement(){
         if (Input.GetKeyDown(KeyCode.LeftArrow))
