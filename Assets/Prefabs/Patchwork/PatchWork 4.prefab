@@ -347,9 +347,10 @@ GameObject:
   - component: {fileID: 2622030372941201009}
   - component: {fileID: 2622030372941201014}
   - component: {fileID: 3036682726356537257}
+  - component: {fileID: 1772332284687594242}
   m_Layer: 0
   m_Name: PatchWork 4
-  m_TagString: Untagged
+  m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,6 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c169a33817f431eac19bdfc6dd1b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myColor: {r: 0, g: 0, b: 0, a: 0}
   rotationPoint: {x: 0, y: 0, z: 0}
   mainBoard: {fileID: 0}
 --- !u!60 &3036682726356537257
@@ -426,6 +428,27 @@ PolygonCollider2D:
       - {x: 0.5572753, y: -1.444613}
       - {x: 1.4161559, y: -1.4559922}
       - {x: 1.4468699, y: 0.4420399}
+--- !u!50 &1772332284687594242
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2622030372941201015}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2622030373023417224
 GameObject:
   m_ObjectHideFlags: 0

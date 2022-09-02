@@ -13,10 +13,10 @@ public class SpawnNewMainBoard : MonoBehaviour
     int mainBoardWidth;
     private void Start() {
         mainBoard = GameObject.Find("MainBoard");
-        var mainBoardSize = mainBoard.transform.localScale;
-        mainBoardHeight = (int)mainBoardSize.y;
+        Vector2 mainBoardSize = mainBoard.transform.localScale;
         mainBoardWidth = (int)mainBoardSize.x;
-        mainBoardGrid = new Transform[mainBoardHeight, mainBoardHeight];
+        mainBoardHeight = (int)mainBoardSize.y;
+        mainBoardGrid = new Transform[mainBoardWidth, mainBoardHeight];
         SpawnPieces();
     }
     void SpawnPieces()
@@ -43,7 +43,7 @@ public class SpawnNewMainBoard : MonoBehaviour
             bool blocked = true;
             while (blocked)
             {
-                if (!newPiece.GetComponent<Piece>().ValidMove())
+                if (!newPiece.GetComponent<Piece>().ValidMoveMainBoard())
                 {
                     tryX += 1;
                     if (tryX > Mathf.RoundToInt(mainBoard.transform.position.x + (mainBoardWidth / 2)))
@@ -57,13 +57,7 @@ public class SpawnNewMainBoard : MonoBehaviour
                     blocked = false;
                 }
             }
-            foreach (Transform children in newPiece.transform)
-            {
-                int roundedX = Mathf.RoundToInt(children.transform.position.x);
-                int roundedY = Mathf.RoundToInt(children.transform.position.y);
-                mainBoardGrid[roundedX, roundedY] = children;
-                Debug.Log("" + roundedX + ", " + roundedY);
-            }
+            newPiece.GetComponent<Piece>().AddToMainBoardGrid();
         }        
     }
 }

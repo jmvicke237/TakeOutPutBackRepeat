@@ -25,8 +25,4 @@ public class PieceParent : MonoBehaviour
             child.gameObject.GetComponent<SpriteRenderer>().color = myColor;
         }
     }
-
-    private void OnMouseDrag() {
-        
-    }
 }
