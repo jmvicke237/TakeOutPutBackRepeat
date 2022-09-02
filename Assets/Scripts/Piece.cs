@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using TMPro;
 
 public class Piece : MonoBehaviour
 {
@@ -44,6 +46,13 @@ public class Piece : MonoBehaviour
         
         mainCamera = GameObject.Find("Main Camera");
         mainCameraCamera = mainCamera.GetComponent<Camera>();
+        
+        TextMeshPro myText = gameObject.GetComponent<TextMeshPro>();
+        myText.fontSize = 8;
+        myText.alignment = TextAlignmentOptions.Center;
+        myText.text = transform.childCount.ToString();
+        myText.fontStyle = FontStyles.Underline;
+
     }
     void Update()
     {
