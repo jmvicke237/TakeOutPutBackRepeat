@@ -18,12 +18,16 @@ public class Piece : MonoBehaviour
     //Private variables
     GameObject mainBoard;
     GameObject player1Board;
+    Collider2D player1BoardCollider;
+    Bounds player1BoardBounds;
     bool selected = false;
     bool mouseHovering = false;
     Vector3 mousePosition;
     Vector3 mouseScreenPosition;
     GameObject mainCamera;
     Camera mainCameraCamera;
+    bool okToPlace = false;
+    bool inBounds = false;
 
     
     void Awake()
@@ -36,10 +40,12 @@ public class Piece : MonoBehaviour
         
         //Playerboard1 setup
         player1Board = GameObject.Find("Player1Board");
+        player1BoardCollider = player1Board.GetComponent<Collider2D>();
         var player1BoardSize = player1Board.transform.localScale;
         player1BoardHeight = (int)player1BoardSize.y;
         player1BoardWidth = (int)player1BoardSize.x;
-        player1BoardGrid = new Transform[player1BoardWidth, player1BoardHeight];
+        // player1BoardBounds = new Bounds(player1Board.transform.position, new Vector3(player1BoardWidth, player1BoardHeight, 0));
+        player1BoardGrid = new Transform[player1BoardWidth + 1, player1BoardHeight + 1];
 
         //Color stuff
         myColor = GetComponentInChildren<SpriteRenderer>().color;
@@ -62,6 +68,30 @@ public class Piece : MonoBehaviour
             Vector3 screenPosition = new Vector3(Mathf.RoundToInt(mouseScreenPosition.x), Mathf.RoundToInt(mouseScreenPosition.y),this.transform.position.z);
             Vector3 tempPosition = transform.position;
             transform.position = new Vector3(screenPosition.x, screenPosition.y, screenPosition.z);
+            foreach (Transform children in transform)
+            {
+                if (player1BoardCollider.bounds.Contains(children.transform.position)){
+                    inBounds = true;
+                } else
+                {
+                    inBounds = false;
+                }
+            }
+            if (inBounds)
+            {
+                if (!PlaceIsFreePlayer1Board())
+                {
+                    okToPlace = false;
+                } else
+                {
+                    okToPlace = true;
+                }
+                if (!okToPlace)
+                {
+                    transform.position = tempPosition;
+                }
+            }
+            
             Movement();
             if (Input.GetMouseButtonDown(0) && !mouseHovering)
             {
@@ -70,7 +100,68 @@ public class Piece : MonoBehaviour
             }
         }
     }
+
+    bool PlaceIsFreePlayer1Board()
+    {
+        foreach (Transform children in transform)
+        {
+            //Prep variables
+            int roundedX = Mathf.RoundToInt(children.transform.position.x);
+            int roundedY = Mathf.RoundToInt(children.transform.position.y);
+            int offsetX = Mathf.RoundToInt(player1Board.transform.position.x - (player1BoardWidth / 2));
+            int offsetY = Mathf.RoundToInt(player1Board.transform.position.y - (player1BoardHeight / 2));
+            
+            //Check if inside board
+            if (player1BoardGrid[roundedX - offsetX, roundedY - offsetY] != null) //Check if space is occupied
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     public bool ValidMoveMainBoard()
+    {
+        if (!InBoundsMainBoard())
+        {
+            return false;
+        }
+
+        if (!PlaceIsFreeMainBoard())
+        {
+            return false;
+        }
+        return true;
+
+       /* foreach (Transform children in transform)
+        {
+            //Prep variables
+            int roundedX = Mathf.RoundToInt(children.transform.position.x);
+            int roundedY = Mathf.RoundToInt(children.transform.position.y);
+            int offsetX = Mathf.RoundToInt(mainBoard.transform.position.x - (mainBoardWidth / 2));
+            int offsetY = Mathf.RoundToInt(mainBoard.transform.position.y - (mainBoardHeight / 2));
+            
+            //Check if inside board
+            if (roundedX < mainBoard.transform.position.x - mainBoardWidth / 2 || roundedX > mainBoard.transform.position.x + mainBoardWidth / 2 || roundedY < mainBoard.transform.position.y - mainBoardHeight / 2 || roundedY >= mainBoard.transform.position.y + mainBoardHeight / 2)
+            {
+                return false;
+            }
+        }
+        foreach (Transform children in transform)
+        {
+            //Prep variables
+            int roundedX = Mathf.RoundToInt(children.transform.position.x);
+            int roundedY = Mathf.RoundToInt(children.transform.position.y);
+            int offsetX = Mathf.RoundToInt(mainBoard.transform.position.x - (mainBoardWidth / 2));
+            int offsetY = Mathf.RoundToInt(mainBoard.transform.position.y - (mainBoardHeight / 2));
+            
+            if (SpawnNewMainBoard.mainBoardGrid[roundedX - offsetX, roundedY - offsetY] != null) //Check if space is occupied
+            {
+                return false;
+            }
+            }
+        return true;*/
+    }
+    public bool InBoundsMainBoard()
     {
         foreach (Transform children in transform)
         {
@@ -81,13 +172,26 @@ public class Piece : MonoBehaviour
             int offsetY = Mathf.RoundToInt(mainBoard.transform.position.y - (mainBoardHeight / 2));
             
             //Check if inside board
-            if (roundedX < mainBoard.transform.position.x - mainBoardWidth / 2 || roundedX >= mainBoard.transform.position.x + mainBoardWidth / 2 || roundedY < mainBoard.transform.position.y - mainBoardHeight / 2 || roundedY >= mainBoard.transform.position.y + mainBoardHeight / 2)
+            if (roundedX < mainBoard.transform.position.x - mainBoardWidth / 2 || roundedX > mainBoard.transform.position.x + mainBoardWidth / 2 || roundedY < mainBoard.transform.position.y - mainBoardHeight / 2 || roundedY >= mainBoard.transform.position.y + mainBoardHeight / 2)
             {
                 return false;
             }
+        }
+        return true;
+    }
 
-            //Check if cell is occupied
-            if (SpawnNewMainBoard.mainBoardGrid[roundedX - offsetX, roundedY - offsetY] != null)
+    public bool PlaceIsFreeMainBoard()
+    {
+        foreach (Transform children in transform)
+        {
+            //Prep variables
+            int roundedX = Mathf.RoundToInt(children.transform.position.x);
+            int roundedY = Mathf.RoundToInt(children.transform.position.y);
+            int offsetX = Mathf.RoundToInt(mainBoard.transform.position.x - (mainBoardWidth / 2));
+            int offsetY = Mathf.RoundToInt(mainBoard.transform.position.y - (mainBoardHeight / 2));
+            
+            //Check if inside board
+            if (SpawnNewMainBoard.mainBoardGrid[roundedX - offsetX, roundedY - offsetY] != null) //Check if space is occupied
             {
                 return false;
             }
@@ -96,17 +200,15 @@ public class Piece : MonoBehaviour
     }   
     public void AddToPlayer1BoardGrid()
     {
-        if (transform.position.x < player1Board.transform.position.x + (player1BoardWidth / 2) && transform.position.x >= player1Board.transform.position.x - (player1BoardWidth / 2) && transform.position.y < player1Board.transform.position.y + (player1BoardHeight / 2) && transform.position.y >= player1Board.transform.position.y - (player1BoardHeight / 2))
+        foreach (Transform children in transform)
         {
-            foreach (Transform children in transform)
-            {
-                int roundedX = Mathf.RoundToInt(children.transform.position.x);
-                int roundedY = Mathf.RoundToInt(children.transform.position.y);
-                int offsetX = Mathf.RoundToInt(player1Board.transform.position.x - (player1BoardWidth / 2));
-                int offsetY = Mathf.RoundToInt(player1Board.transform.position.y - (player1BoardHeight / 2));
-                player1BoardGrid[roundedX + (-1 * offsetX), roundedY + (-1 * offsetY)] = children;
-            }
+            int roundedX = Mathf.RoundToInt(children.transform.position.x);
+            int roundedY = Mathf.RoundToInt(children.transform.position.y);
+            int offsetX = Mathf.RoundToInt(player1Board.transform.position.x - (player1BoardWidth / 2));
+            int offsetY = Mathf.RoundToInt(player1Board.transform.position.y - (player1BoardHeight / 2));
+            player1BoardGrid[roundedX + (-1 * offsetX), roundedY + (-1 * offsetY)] = children;
         }
+        
     }
     public void AddToMainBoardGrid()
     {
@@ -132,15 +234,25 @@ public class Piece : MonoBehaviour
         mouseHovering = false;
     }
     private void OnMouseDown() {
+        if (selected)
+        {
+            if (inBounds)
+            {
+                if (okToPlace)
+                {
+                    AddToPlayer1BoardGrid();
+                }
+            }
+        }
         selected = !selected;
     }
     void Movement(){
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0,0,1), -90);
+            transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0,0,1), 90);
         } else if (Input.GetKeyDown(KeyCode.E))
         {
-            transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0,0,1), 90);
+            transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0,0,1), -90);
         }
     }
     void HighlightPieces()
