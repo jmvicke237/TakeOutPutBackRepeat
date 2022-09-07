@@ -57,6 +57,7 @@ public class SpawnNewMainBoard : MonoBehaviour
                 blocked = false;
             }
             newPiece.GetComponent<Piece>().AddToMainBoardGrid();
+            newPiece.GetComponent<Piece>().inBoundsMainBoard = true;
         }        
     }
 }

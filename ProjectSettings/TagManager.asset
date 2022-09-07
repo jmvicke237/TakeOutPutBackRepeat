@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Piece
+  - Player2Board
   layers:
   - Default
   - TransparentFX
