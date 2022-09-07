@@ -397,9 +397,14 @@ public class Piece : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0,0,1), 90);
-        } else if (Input.GetKeyDown(KeyCode.E))
+        } else if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1))
         {
             transform.RotateAround(transform.TransformPoint(rotationPoint), new Vector3(0,0,1), -90);
+        } else if (Input.GetKeyDown(KeyCode.F))
+        {
+            Vector3 newScale = transform.localScale;
+            newScale.x *= -1;
+            transform.localScale = newScale;
         }
     }
     void HighlightPieces()

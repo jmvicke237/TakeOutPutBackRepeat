@@ -5,7 +5,10 @@ using UnityEngine;
 public class SpawnNewMainBoard : MonoBehaviour
 {
     public bool recolor;
-    public List<GameObject> polyominoesList;
+    public List<GameObject> patchworkList;
+    public List<GameObject> tetrisList;
+    List<List<GameObject>> listOfPieceLists = new List<List<GameObject>>();
+    
     public static Transform[,] mainBoardGrid;
     public List<Color> newColors;
     GameObject mainBoard;
@@ -17,15 +20,18 @@ public class SpawnNewMainBoard : MonoBehaviour
         mainBoardWidth = (int)mainBoardSize.x;
         mainBoardHeight = (int)mainBoardSize.y;
         mainBoardGrid = new Transform[mainBoardWidth + 1, mainBoardHeight + 1];
+        listOfPieceLists.Add(patchworkList);
+        listOfPieceLists.Add(tetrisList);
         SpawnPieces();
-        Debug.Log(mainBoardGrid[1,1]);
     }
     void SpawnPieces()
     {
-        while (polyominoesList.Count > 0)
+        int randomListIndex = Random.Range(0, listOfPieceLists.Count);
+        List<GameObject> spawnList = listOfPieceLists[randomListIndex];
+        while (spawnList.Count > 0)
         {
-            int randomListElement = Random.Range(0, polyominoesList.Count);
-            GameObject newPiece = Instantiate(polyominoesList[randomListElement], transform.position, Quaternion.identity);
+            int randomListElement = Random.Range(0, spawnList.Count);
+            GameObject newPiece = Instantiate(spawnList[randomListElement], transform.position, Quaternion.identity);
             if (recolor)
             {
                 int rand = Random.Range(0,newColors.Count);
@@ -35,7 +41,7 @@ public class SpawnNewMainBoard : MonoBehaviour
                 }
                 newPiece.GetComponent<Piece>().myColor = newColors[rand];
             }
-            polyominoesList.RemoveAt(randomListElement);
+            spawnList.RemoveAt(randomListElement);
             int randomRotation = Random.Range(0,4);
             newPiece.transform.RotateAround(transform.TransformPoint(newPiece.GetComponent<Piece>().rotationPoint), new Vector3(0,0,1), randomRotation * 90);
             int tryX = Mathf.RoundToInt(mainBoard.transform.position.x - (mainBoardWidth / 2));
