@@ -18,6 +18,7 @@ public class SpawnNewMainBoard : MonoBehaviour
         mainBoardHeight = (int)mainBoardSize.y;
         mainBoardGrid = new Transform[mainBoardWidth + 1, mainBoardHeight + 1];
         SpawnPieces();
+        Debug.Log(mainBoardGrid[1,1]);
     }
     void SpawnPieces()
     {

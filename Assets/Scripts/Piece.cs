@@ -259,7 +259,6 @@ public class Piece : MonoBehaviour
         }
         return true;
     }
-
     public bool PlaceIsFreeMainBoard()
     {
         foreach (Transform children in transform)
@@ -289,7 +288,6 @@ public class Piece : MonoBehaviour
             Player1Board.player1BoardGrid[roundedX + (-1 * offsetX), roundedY + (-1 * offsetY)] = children;
             var tmpx = roundedX + (-1 * offsetX);
             var tmpy = roundedY + (-1 * offsetY);
-            Debug.Log(tmpx + "," + tmpy);
         }
     }
 
@@ -316,7 +314,6 @@ public class Piece : MonoBehaviour
             Player2Board.player2BoardGrid[roundedX - offsetX, roundedY + (-1 * offsetY)] = children;
             var tmpx = roundedX - offsetX;
             var tmpy = roundedY + (-1 * offsetY);
-            Debug.Log(tmpx + "," + tmpy);
         }
     }
 
@@ -339,7 +336,6 @@ public class Piece : MonoBehaviour
             int roundedY = Mathf.RoundToInt(children.transform.position.y);
             int offsetX = Mathf.RoundToInt(mainBoard.transform.position.x - (mainBoardWidth / 2));
             int offsetY = Mathf.RoundToInt(mainBoard.transform.position.y - (mainBoardHeight / 2));
-            int foo = roundedY - offsetY;
             SpawnNewMainBoard.mainBoardGrid[roundedX - offsetX, roundedY - offsetY] = children;
         }
     }
@@ -352,7 +348,6 @@ public class Piece : MonoBehaviour
             int roundedY = Mathf.RoundToInt(children.transform.position.y);
             int offsetX = Mathf.RoundToInt(mainBoard.transform.position.x - (mainBoardWidth / 2));
             int offsetY = Mathf.RoundToInt(mainBoard.transform.position.y - (mainBoardHeight / 2));
-            int foo = roundedY - offsetY;
             SpawnNewMainBoard.mainBoardGrid[roundedX - offsetX, roundedY - offsetY] = null;
         }
     }
