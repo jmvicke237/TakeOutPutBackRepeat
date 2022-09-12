@@ -399,6 +399,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myColor: {r: 0, g: 0, b: 0, a: 0}
   rotationPoint: {x: 0, y: 0, z: 0}
+  inBoundsMainBoard: 0
+  value: 2
 --- !u!60 &4466190382941147176
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class Piece : MonoBehaviour
     public static int player2BoardWidth;
     public static int player2BoardHeight;
     public static Transform[,] player2BoardGrid;
+    public bool inBoundsMainBoard = false;
+    public int value;
     
     //Private variables
     GameObject mainBoard;
@@ -27,11 +29,11 @@ public class Piece : MonoBehaviour
     Vector3 mouseScreenPosition;
     GameObject mainCamera;
     Camera mainCameraCamera;
-    [SerializeField] bool okToPlacePlayer1 = false;
-    [SerializeField] bool okToPlacePlayer2 = false;
-    public bool inBoundsMainBoard = false;
-    [SerializeField] bool inBoundsPlayer1 = false;
-    [SerializeField] bool inBoundsPlayer2 = false;
+    bool okToPlacePlayer1 = false;
+    bool okToPlacePlayer2 = false;
+    bool inBoundsPlayer1 = false;
+    bool inBoundsPlayer2 = false;
+
 
     
     void Awake()
@@ -68,7 +70,14 @@ public class Piece : MonoBehaviour
         TextMeshPro myText = gameObject.GetComponent<TextMeshPro>();
         myText.fontSize = 8;
         myText.alignment = TextAlignmentOptions.Center;
-        myText.text = transform.childCount.ToString();
+        if (value > 0)
+        {
+            myText.text = value.ToString();
+        } else
+        {
+            myText.text = "";
+        }
+        
         myText.fontStyle = FontStyles.Underline;
 
     }
