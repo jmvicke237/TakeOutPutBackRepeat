@@ -181,8 +181,6 @@ public class Piece : MonoBehaviour
             int offsetX = Mathf.RoundToInt(player1Board.transform.position.x - (Player1Board.player1BoardWidth / 2));
             int offsetY = Mathf.RoundToInt(player1Board.transform.position.y - (Player1Board.player1BoardHeight / 2));
 
-            //if (Player1Board.player1BoardGrid[roundedX - offsetX, roundedY - offsetY] != null)
-
             if (Player1Board.player1BoardGrid[roundedX + (-1 * offsetX), roundedY + (-1 * offsetY)] != null)
             {
                 return false;
