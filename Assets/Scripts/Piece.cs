@@ -9,6 +9,7 @@ public class Piece : MonoBehaviour
     //Public variables
     public Color myColor;
     public Vector3 rotationPoint;
+    public int pieceKind; // 0 = neutral; 1 = Player One; 2 = Player Two
     public static int mainBoardWidth;
     public static int mainBoardHeight;
     public static int player2BoardWidth;
